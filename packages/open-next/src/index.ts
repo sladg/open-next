@@ -11,6 +11,7 @@ if (Object.keys(args).includes("--help")) printHelp();
 build({
   buildCommand: args["--build-command"],
   minify: Object.keys(args).includes("--minify"),
+  streaming: Object.keys(args).includes("--streaming"),
 });
 
 function parseArgs() {
