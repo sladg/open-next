@@ -47,6 +47,7 @@ export const lambdaHandler = awslambda.streamifyResponse(async function (
     method: string,
     headers: Record<string, string>,
   ) =>
+    // @TODO: Change this.
     new StreamingServerResponse(
       { method, headers },
       responseStream,
@@ -63,20 +64,15 @@ export const lambdaHandler = awslambda.streamifyResponse(async function (
     createServerResponse,
   );
   if ("type" in preprocessResult) {
-    //TODO: replace this line
-    const headers = preprocessResult.headers as Record<string, string>;
     console.log("headers", headers);
     const res = createServerResponse("GET", headers);
-    // setImmediate(() => {
-    //   console.log("preprocessResult.headers", headers);
-    //   res.writeHead(preprocessResult.statusCode, headers);
-    // });
-    setImmediate(() => {
-      res.writeHead(preprocessResult.statusCode, headers);
-      res.write(preprocessResult.body);
-      res.end();
-    });
-    // res.statusCode = preprocessResult.statusCode;
+
+    // @TODO: Change this
+    res.sendNextResponse(
+      preprocessResult.statusCode,
+      preprocessResult.body,
+      preprocessResult.headers,
+    );
   } else {
     const {
       req,

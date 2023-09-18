@@ -64,7 +64,7 @@ export async function build(opts: BuildOptions = {}) {
   // Build Next.js app
   printHeader("Building Next.js app");
   setStandaloneBuildMode(monorepoRoot);
-  await buildNextjsApp(packager);
+  // await buildNextjsApp(packager);
 
   // Generate deployable bundle
   printHeader("Generating bundle");

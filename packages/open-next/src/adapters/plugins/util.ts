@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 
-// @ts-ignore
 import NextServer from "next/dist/server/next-server.js";
 
 import { debug } from "../logger.js";
@@ -34,10 +33,12 @@ overrideNextjsRequireHooks(config);
 applyNextjsRequireHooksOverride();
 
 //#override requestHandler
-// @ts-ignore
-export const requestHandler = new NextServer.default({
+export const requestHandler = new NextServer({
   hostname: "localhost",
   port: 3000,
+  httpServer: {
+    //
+  },
   conf: {
     ...config,
     // Next.js compression should be disabled because of a bug in the bundled

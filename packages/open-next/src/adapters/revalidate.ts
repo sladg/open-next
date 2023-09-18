@@ -19,8 +19,16 @@ interface PrerenderManifest {
 
 export const handler = async (event: SQSEvent) => {
   for (const record of event.Records) {
-    const { host, url } = JSON.parse(record.body);
-    debug(`Revalidating stale page`, { host, url });
+    const { host, url: path } = JSON.parse(record.body);
+    debug(`Revalidating stale page`, { host, path });
+
+    /*
+    @TODO: Use first-party support for validation.
+      const url = new URL(path, host);
+      const { pathname: pathToRegenerate } = url;
+      await res.revalidate(pathToRegenerate);
+      res.json({ regenerated: true });
+    */
 
     // Make a HEAD request to the page to revalidate it. This will trigger
     // the page to be re-rendered and cached in S3

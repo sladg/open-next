@@ -2,10 +2,11 @@ import { SSTConfig } from "sst";
 import { Config, NextjsSite } from "sst/constructs";
 
 export default {
-  config(_input) {
+  config(input) {
     return {
       name: "example",
       region: "us-east-1",
+      stage: input.stage,
     };
   },
   stacks(app) {

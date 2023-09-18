@@ -1,7 +1,7 @@
 import path from "node:path";
 
+import { handler as lambdaHandler } from "../adapters/http";
 import { debug } from "./logger.js";
-import { lambdaHandler } from "./plugins/lambdaHandler.js";
 import {
   loadBuildId,
   loadConfig,

@@ -11,17 +11,17 @@
   "dependencies": {
     "dayjs": "^1.11.9",
     "gray-matter": "^4.0.3",
-    "next": "13.4.12",
-    "next-auth": "^4.22.1",
+    "next": "13.4.19",
+    "next-auth": "^4.23.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "remark": "^13.0.0",
-    "remark-html": "^13.0.2",
-    "swr": "^1.0.1"
+    "remark": "^14.0.3",
+    "remark-html": "^15.0.2",
+    "swr": "^2.2.2"
   },
   "devDependencies": {
-    "aws-cdk-lib": "2.84.0",
-    "constructs": "10.1.156",
-    "sst": "2.16.3"
+    "aws-cdk-lib": "2.94.0",
+    "constructs": "10.2.70",
+    "sst": "2.24.24"
   }
 }

@@ -86,6 +86,8 @@ export async function handleMiddleware(
     useCache: true,
     onWarning: console.warn,
   });
+
+  // @TODO: Change this
   res.statusCode = result.response.status;
   // If the middleware returned a Redirect, we set the `Location` header with
   // the redirected url and end the response.

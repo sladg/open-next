@@ -1,4 +1,4 @@
-const commonBinaryMimeTypes = new Set([
+export const commonBinaryMimeTypes = new Set([
   "application/octet-stream",
   // Docs
   "application/epub+zip",
